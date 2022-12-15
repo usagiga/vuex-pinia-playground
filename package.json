@@ -8,7 +8,14 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "format": "prettier --list-different 'src/**/*.{vue,js,jsx,ts,tsx,gql,graphql,json,css,scss}'",
+    "format:fix": "prettier --write 'src/**/*.{vue,js,jsx,ts,tsx,gql,graphql,json,css,scss}'",
+    "lint": "npm run lint:es && npm run lint:style",
+    "lint:fix": "npm run lint:es:fix && npm run lint:style:fix",
+    "lint:es": "eslint --max-warnings 0 --ignore-path '.gitignore' 'src/**/*.{vue,js,jsx,ts,tsx}'",
+    "lint:es:fix": "eslint --max-warnings 0 --fix --ignore-path '.gitignore' 'src/**/*.{vue,js,jsx,ts,tsx}'",
+    "lint:style": "stylelint --max-warnings=0 'src/**/*.{css,less,sass,scss}'",
+    "lint:style:fix": "stylelint --max-warnings=0 --fix 'src/**/*.{css,less,sass,scss}'"
   },
   "dependencies": {
     "vue": "^3.2.45",
