@@ -1,0 +1,34 @@
+name: "test"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.vue"
+      - "**.jsx?"
+      - "**.tsx?"
+      - "**.html?"
+      - "**.s?css"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**.vue"
+      - "**.jsx?"
+      - "**.tsx?"
+      - "**.html?"
+      - "**.s?css"
+
+jobs:
+  test:
+    name: "test"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v3"
+      - uses: "actions/setup-node@v3"
+        with:
+          node-version: "18.12.1"
+      - run: "npm run format"
+      - run: "npm run lint:es"
+      - run: "npm run lint:style"
