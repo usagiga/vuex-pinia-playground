@@ -29,6 +29,7 @@ jobs:
       - uses: "actions/setup-node@v3"
         with:
           node-version: "18.12.1"
+      - run: "npm ci"
       - run: "npm run format"
       - run: "npm run lint:es"
       - run: "npm run lint:style"
