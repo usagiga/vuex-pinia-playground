@@ -4,21 +4,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "**.vue"
-      - "**.jsx?"
-      - "**.tsx?"
-      - "**.html?"
-      - "**.s?css"
   pull_request:
     branches:
       - main
-    paths:
-      - "**.vue"
-      - "**.jsx?"
-      - "**.tsx?"
-      - "**.html?"
-      - "**.s?css"
 
 jobs:
   test:
