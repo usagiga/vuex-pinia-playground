@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useStore } from 'vuex';
 import { computed } from 'vue';
+import { useColorSchemeStore } from '@/stores/color-scheme';
 
-const store = useStore();
+const colorSchemeStore = useColorSchemeStore();
 
-const isDark = computed(() => store.state.colorScheme.isDark);
+const isDark = computed(() => colorSchemeStore.isDark);
 
 changeColorScheme();
 
 function toggleColorScheme() {
-    store.commit('colorScheme/toggleColorScheme');
+    colorSchemeStore.toggleColorScheme();
     changeColorScheme();
 }
 
