@@ -18,6 +18,7 @@
     "lint:style:fix": "stylelint --max-warnings=0 --fix 'src/**/*.{css,less,sass,scss}'"
   },
   "dependencies": {
+    "pinia": "^2.0.28",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
     "vuex": "^4.0.2"
