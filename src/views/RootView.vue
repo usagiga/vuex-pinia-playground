@@ -1,7 +1,14 @@
-<script setup lang="ts"></script>
+<script>
+import { defineComponent } from 'vue';
+import ColorSchemeButton from '@/components/ColorSchemeButton.vue';
+
+export default defineComponent({
+    components: { ColorSchemeButton },
+});
+</script>
 
 <template>
     <main>
-        <p>Hello, World!</p>
+        <ColorSchemeButton />
     </main>
 </template>
