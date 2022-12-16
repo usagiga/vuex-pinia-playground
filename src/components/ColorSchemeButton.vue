@@ -25,7 +25,5 @@ function changeColorScheme() {
 </script>
 
 <template>
-    <button @click="toggleColorScheme">
-        Toggle Color Scheme
-    </button>
+    <button @click="toggleColorScheme">Toggle Color Scheme</button>
 </template>
