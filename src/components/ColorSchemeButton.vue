@@ -1,38 +1,20 @@
 <script setup lang="ts">
-import { useStore } from 'vuex';
 import { computed } from 'vue';
 import { useColorSchemeStore } from '@/stores/color-scheme';
 
-const store = useStore();
 const colorSchemeStore = useColorSchemeStore();
 
-const isDarkVuex = computed(() => store.state.colorScheme.isDark);
-const isDarkPinia = computed(() => colorSchemeStore.isDark);
+const isDark = computed(() => colorSchemeStore.isDark);
 
-changeColorSchemePinia();
+changeColorScheme();
 
-function toggleColorSchemeVuex() {
-    store.commit('colorScheme/toggleColorScheme');
-    changeColorSchemeVuex();
-}
-
-function changeColorSchemeVuex() {
-    if (isDarkVuex.value) {
-        console.log('turn off');
-        document.documentElement.classList.add('dark');
-    } else {
-        console.log('turn on');
-        document.documentElement.classList.remove('dark');
-    }
-}
-
-function toggleColorSchemePinia() {
+function toggleColorScheme() {
     colorSchemeStore.toggleColorScheme();
-    changeColorSchemePinia();
+    changeColorScheme();
 }
 
-function changeColorSchemePinia() {
-    if (isDarkPinia.value) {
+function changeColorScheme() {
+    if (isDark.value) {
         console.log('turn off');
         document.documentElement.classList.add('dark');
     } else {
@@ -43,6 +25,5 @@ function changeColorSchemePinia() {
 </script>
 
 <template>
-    <button @click="toggleColorSchemeVuex">Toggle Color Scheme (Vuex)</button>
-    <button @click="toggleColorSchemePinia">Toggle Color Scheme (Pinia)</button>
+    <button @click="toggleColorScheme">Toggle Color Scheme</button>
 </template>
